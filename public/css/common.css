@@ -1,0 +1,150 @@
+.floating-btn-div {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.floating-btn {
+    background: transparent;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 24px; 
+    transition: background-color 0.3s ease;
+    animation: 1000ms linear 100ms infinite alternate scrollUpDown1;
+}
+
+.floating-btn:hover {
+    background-color: #000000;
+    color: white;
+    
+}
+
+.floating-btn1 {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  animation: 1000ms linear 100ms infinite alternate scrollUpDown1;
+}
+
+@keyframes scrollUpDown1 {
+  0% {
+    transform: translateY(0px); /* Initial position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move up by 1px */
+  }
+  100% {
+    transform: translateY(0px); /* Move back to the initial position */
+  }
+}
+
+
+
+/* about banner */
+.about_banner{
+  .ab_bn_inner{
+    height: 400px;
+    background: url("../images/about5.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+.ab_social_links{
+  margin-left: 10%;
+  margin-right: 10%;
+  .ab_social_inner{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+#social_main{
+  
+  padding: 15px;
+  box-shadow: 3px 3px 5px rgba(179, 176, 176, 0.418) inset,
+  -3px -3px 5px rgba(192, 191, 191, 0.315) inset;
+  transition: all 105ms ease-in;
+  &:hover{
+    box-shadow: 3px 3px 5px rgba(110, 110, 110, 0.418) inset,
+    -3px -3px 5px rgba(82, 81, 81, 0.315) inset;
+    scale: 1.02;
+    cursor: pointer;
+  }
+}
+
+#social_img{
+  width: 50px;
+}
+
+#social_title{
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+#social_sub_desc{
+  font-size: 0.8rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+
+
+/* responsive about */
+
+
+@media (min-width: 350px) and (max-width: 414px) {
+  .ab_social_links{
+    margin-bottom: 10%;
+  }
+  #social_img{
+    width: 25px !important;
+    height: 30px;
+  }
+
+  #social_title{
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+  }
+  
+  #social_sub_desc{
+    font-size: 0.5rem;
+    font-weight: 500;
+    opacity: 0.8;
+  }
+}
+
+
+
+
+
+@media (min-width: 400px) and (max-width: 654px) {
+  .ab_social_links{
+    margin-bottom: 10%;
+  }
+  #social_img{
+    width: 30px;
+  }
+
+  #social_title{
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+  }
+  
+  #social_sub_desc{
+    font-size: 0.5rem;
+    font-weight: 500;
+    opacity: 0.8;
+  }
+}
