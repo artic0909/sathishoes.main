@@ -91,7 +91,7 @@
                     <!-- logout -->
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                            <img src="{{asset('images/empty.jpg')}}" alt="profile" />
+                            <img src="{{asset('admin/images/S.png')}}" alt="profile" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
 
@@ -99,7 +99,7 @@
                                 @csrf
                                 <a class="dropdown-item" :href="route('logout')"
                                     onclick="event.preventDefault();
-                                                this.closest('form').submit();">
+                                          this.closest('form').submit();">
                                     <i class="ti-power-off text-primary"></i>
                                     Logout
                                 </a>
@@ -295,7 +295,7 @@
                                                             <th>Last Name</th>
                                                             <th>Problems</th>
                                                             <th>Email</th>
-                                                            <th>Mobile</th>
+                                                            <th>Whatsapp</th>
                                                             <th>Delete</th>
                                                         </tr>
                                                     </thead>
