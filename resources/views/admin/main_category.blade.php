@@ -295,14 +295,13 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-
+                                                        @foreach($mainCategories as $mainCategory)
                                                         <tr>
-
-                                                            <td style="text-transform: uppercase;">Men</td>
-                                                            <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                                                            <td><a href="" class="text-danger" style="font-size: 1.4rem;"><i class="fa-solid fa-trash-can"></i></a></td>
+                                                            <td style="text-transform: uppercase;">{{$mainCategory->main_category}}</td>
+                                                            <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal{{$mainCategory->id}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                                                            <td><a href="" class="text-danger" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myDeleteModal{{$mainCategory->id}}"><i class="fa-solid fa-trash-can"></i></a></td>
                                                         </tr>
-
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -386,7 +385,8 @@
 
 
                     <div class="modal-body">
-                        <form>
+                        <form action="{{ route('main_category_add') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group">
                                 <label for="main_category">Name</label>
                                 <input type="text" class="form-control" id="main_category" name="main_category">
@@ -409,7 +409,8 @@
 
 
         <!-- edit modal -->
-        <div class="modal" id="myEditModal">
+        @foreach($mainCategories as $mainCategory)
+        <div class="modal" id="myEditModal{{$mainCategory->id}}">
             <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -420,11 +421,13 @@
 
 
                     <div class="modal-body">
-                        <form>
+                        <form action="{{ route('main_category_edit', $mainCategory->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
 
                             <div class="form-group">
                                 <label for="main_category">Name</label>
-                                <input type="text" class="form-control" id="main_category" name="main_category">
+                                <input type="text" class="form-control" id="main_category" name="main_category" value="{{$mainCategory->main_category}}">
                             </div>
 
 
@@ -437,6 +440,49 @@
                 </div>
             </div>
         </div>
+        @endforeach
+
+
+
+
+
+
+        <!-- delete modal -->
+        @foreach($mainCategories as $mainCategory)
+        <div class="modal fade" id="myDeleteModal{{ $mainCategory->id }}" tabindex="-1" aria-labelledby="myDeleteModal{{ $mainCategory->id }}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myDeleteModal{{ $mainCategory->id }}">Confirm Delete</h5>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete this information?
+                    </div>
+                    <div class="modal-footer">
+                        <form action="{{ route('main_category_delete', $mainCategory->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- page-body-wrapper ends -->
+        </div>
+        @endforeach
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

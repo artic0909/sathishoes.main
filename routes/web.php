@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -104,3 +106,57 @@ Route::get('/contact-us', function () {
 
 
 // admin routes=============================================================================================================================================
+
+
+
+
+
+
+
+
+
+// API Routes===============================================================================================================================================
+Route::get('/big-banner', [AdminController::class, 'big_banner_get'])->name('big_banner_get');
+Route::post('/big-banner/add', [AdminController::class, 'big_banner_add'])->name('big_banner_add');
+Route::put('/big-banner/edit/{id}', [AdminController::class, 'big_banner_edit'])->name('big_banner_edit');
+Route::delete('/big-banner/delete/{id}', [AdminController::class, 'big_banner_delete'])->name('big_banner_delete');
+
+
+
+
+Route::get('/small-banner', [AdminController::class, 'small_banner_get'])->name('small_banner_get');
+Route::post('/small-banner/add', [AdminController::class, 'small_banner_add'])->name('small_banner_add');
+Route::put('/small-banner/edit/{id}', [AdminController::class, 'small_banner_edit'])->name('small_banner_edit');
+Route::delete('/small-banner/delete/{id}', [AdminController::class, 'small_banner_delete'])->name('small_banner_delete');
+
+
+
+
+Route::get('/contact-banner', [AdminController::class, 'contact_banner_get'])->name('contact_banner_get');
+Route::post('/contact-banner/add', [AdminController::class, 'contact_banner_add'])->name('contact_banner_add');
+Route::put('/contact-banner/edit/{id}', [AdminController::class, 'contact_banner_edit'])->name('contact_banner_edit');
+Route::delete('/contact-banner/delete/{id}', [AdminController::class, 'contact_banner_delete'])->name('contact_banner_delete');
+
+
+
+
+Route::get('/main-category', [AdminController::class, 'main_category_get'])->name('main_category_get');
+Route::post('/main-category/add', [AdminController::class, 'main_category_add'])->name('main_category_add');
+Route::put('/main-category/edit/{id}', [AdminController::class, 'main_category_edit'])->name('main_category_edit');
+Route::delete('/main-category/delete/{id}', [AdminController::class, 'main_category_delete'])->name('main_category_delete');
+
+
+
+
+Route::get('/admin-sub-category', [AdminController::class, 'sub_category_get'])->name('sub_category_get');
+Route::post('/admin-sub-category/add', [AdminController::class, 'sub_category_add'])->name('sub_category_add');
+Route::put('/admin-sub-category/edit/{id}', [AdminController::class, 'sub_category_edit'])->name('sub_category_edit');
+Route::delete('/admin-sub-category/delete/{id}', [AdminController::class, 'sub_category_delete'])->name('sub_category_delete');
+
+
+
+
+Route::get('/all-products', [ProductController::class, 'products_get'])->name('products_get');
+Route::post('/all-products/add', [ProductController::class, 'product_add'])->name('product_add');
+Route::put('/all-products/edit/{id}', [ProductController::class, 'product_edit'])->name('product_edit');
+Route::delete('/all-products/delete/{id}', [ProductController::class, 'product_delete'])->name('product_delete');

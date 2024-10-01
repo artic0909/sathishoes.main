@@ -307,22 +307,22 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-
+                                                        @foreach($adminProducts as $adminProduct)
                                                         <tr>
-                                                            <td><img src="{{asset('images/empty.jpg')}}" alt=""></td>
-                                                            <td style="text-transform: uppercase;">Men</td>
-                                                            <td style="text-transform: capitalize;">Formal Shoes</td>
-                                                            <td style="text-transform: capitalize;">Latest</td>
-                                                            <td style="text-transform: capitalize;">xyz shoe</td>
-                                                            <td>₹ 999</td>
-                                                            <td>desc</td>
-                                                            <td>white, black</td>
-                                                            <td>SMT-300TP</td>
-                                                            <td><a href="">Link</a></td>
-                                                            <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                                                            <td><a href="" class="text-danger" style="font-size: 1.4rem;"><i class="fa-solid fa-trash-can"></i></a></td>
+                                                            <td><img src="{{ asset('storage/' . $adminProduct->product_image) }}" alt=""></td>
+                                                            <td style="text-transform: uppercase;">{{$adminProduct->main_category}}</td>
+                                                            <td style="text-transform: capitalize;">{{$adminProduct->sub_category}}</td>
+                                                            <td style="text-transform: capitalize;">{{$adminProduct->version_category}}</td>
+                                                            <td style="text-transform: capitalize;">{{$adminProduct->product_title}}</td>
+                                                            <td>₹ {{$adminProduct->product_price}}</td>
+                                                            <td>{{$adminProduct->product_desc}}</td>
+                                                            <td>{{$adminProduct->product_colors}}</td>
+                                                            <td>{{$adminProduct->product_sku}}</td>
+                                                            <td><a href="{{$adminProduct->product_link}}">Link</a></td>
+                                                            <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal{{$adminProduct->id}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                                                            <td><a href="" class="text-danger" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myDeleteModal{{$adminProduct->id}}"><i class="fa-solid fa-trash-can"></i></a></td>
                                                         </tr>
-
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -405,9 +405,10 @@
 
 
                     <div class="modal-body">
-                        <form>
+                        <form action="{{ route('product_add') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group">
-                                <label for="product_image">Sub Category Image</label>
+                                <label for="product_image">Product Image</label>
                                 <input type="file" class="form-control" id="product_image" name="product_image">
                                 <small id="emailHelp" class="form-text text-muted">Upload banner less than 1.5 MB</small>
                             </div>
@@ -416,9 +417,10 @@
                             <div class="form-group">
                                 <label for="main_category">Main Category</label>
                                 <select class="form-control" name="main_category" id="main_category">
-                                    <option style="text-transform: capitalize;">Men</option>
-                                    <option style="text-transform: capitalize;">Women</option>
-                                    <option style="text-transform: capitalize;">Kids</option>
+                                    <option value="none" style="text-transform: capitalize;" selected>None</option>
+                                    @foreach($mainCategories as $mainCategory)
+                                    <option style="text-transform: capitalize;" value="{{$mainCategory->main_category}}">{{$mainCategory->main_category}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -428,8 +430,10 @@
                             <div class="form-group">
                                 <label for="sub_category">Sub Category</label>
                                 <select class="form-control" name="sub_category" id="sub_category">
-                                    <option style="text-transform: capitalize;">Formal Shoes</option>
-                                    <option style="text-transform: capitalize;">Sports Shoes</option>
+                                    <option value="none" style="text-transform: capitalize;" selected>None</option>
+                                    @foreach($subCategories as $subCategory)
+                                    <option style="text-transform: capitalize;" value="{{$subCategory->sub_category}}">{{$subCategory->sub_category}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -548,7 +552,7 @@
 
 
 
-                            
+
                             <div class="form-group">
                                 <label for="version_category">Version Category</label>
                                 <select class="form-control" name="version_category" id="version_category">

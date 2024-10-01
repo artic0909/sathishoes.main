@@ -83,6 +83,28 @@
                     <span class="icon-menu"></span>
                 </button>
 
+
+
+                <!-- searchbar -->
+                <ul class="navbar-nav mr-lg-2">
+                    <li class="nav-item nav-search d-none d-lg-block">
+                        <div class="input-group">
+                            <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                                <span class="input-group-text" id="search">
+                                    <i class="icon-search"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                        </div>
+                    </li>
+                </ul>
+
+
+
+
+
+
+
                 <ul class="navbar-nav navbar-nav-right">
 
 
@@ -300,15 +322,15 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-
-                                                        <tr>
-                                                            <td><img src="{{asset('images/empty.jpg')}}" alt=""></td>
-                                                            <td style="text-transform: uppercase;">Men</td>
-                                                            <td style="text-transform: capitalize;">Formal Shoes</td>
-                                                            <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                                                            <td><a href="" class="text-danger" style="font-size: 1.4rem;"><i class="fa-solid fa-trash-can"></i></a></td>
+                                                        <!-- @foreach($subCategories as $subCategory)
+                                                        <tr class="t_row_data">
+                                                            <td><img src="{{ asset('storage/' . $subCategory->sub_category_image) }}" alt=""></td>
+                                                            <td style="text-transform: uppercase;">{{$subCategory->main_category->main_category ?? 'N/A'}}</td>
+                                                            <td style="text-transform: capitalize;">{{$subCategory->sub_category}}</td>
+                                                            <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal{{$subCategory->id}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                                                            <td><a href="" class="text-danger" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myDeleteModal{{$subCategory->id}}"><i class="fa-solid fa-trash-can"></i></a></td>
                                                         </tr>
-
+                                                        @endforeach -->
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -379,6 +401,7 @@
         </div>
 
 
+
         <!-- add modal -->
         <div class="modal" id="myAddModal">
             <div class="modal-dialog">
@@ -389,39 +412,33 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
 
-
                     <div class="modal-body">
-                        <form>
+                        <form action="{{ route('sub_category_add') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group">
                                 <label for="sub_category_image">Sub Category Image</label>
-                                <input type="file" class="form-control" id="sub_category_image" name="sub_category_image">
-                                <small id="emailHelp" class="form-text text-muted">Upload banner less than 1.5 MB</small>
+                                <input type="file" class="form-control" id="sub_category_image" name="sub_category_image" accept="image/*">
+                                <small id="emailHelp" class="form-text text-muted">Upload an image less than 1.5 MB</small>
                             </div>
-
 
                             <div class="form-group">
                                 <label for="main_category">Main Category</label>
-                                <select class="form-control" name="main_category" id="main_category">
-                                    <option>Men</option>
-                                    <option>Women</option>
-                                    <option>Kids</option>
+                                <select class="form-control" name="main_category_id" id="main_category_id">
+                                    <option style="text-transform: uppercase;" value="none" selected>Select</option>
+                                    @foreach($mainCategories as $mainCategory)
+                                    <option style="text-transform: uppercase;" value="{{ $mainCategory->id }}">{{ $mainCategory->main_category }}</option>
+                                    @endforeach
                                 </select>
                             </div>
-
-
-
 
                             <div class="form-group">
                                 <label for="sub_category">Sub Category</label>
                                 <input type="text" class="form-control" id="sub_category" name="sub_category">
                             </div>
 
-
                             <button type="submit" class="btn btn-success">Submit</button>
                         </form>
                     </div>
-
-
 
                 </div>
             </div>
@@ -432,8 +449,10 @@
 
 
 
+
         <!-- edit modal -->
-        <div class="modal" id="myEditModal">
+        <!-- @foreach($subCategories as $subCategory)
+        <div class="modal" id="myEditModal{{$subCategory->id}}">
             <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -444,7 +463,9 @@
 
 
                     <div class="modal-body">
-                        <form>
+                        <form action="{{ route('sub_category_edit', $subCategory->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
                             <div class="form-group">
                                 <label for="sub_category_image">Sub Category Image</label>
                                 <input type="file" class="form-control" id="sub_category_image" name="sub_category_image">
@@ -455,9 +476,10 @@
                             <div class="form-group">
                                 <label for="main_category">Main Category</label>
                                 <select class="form-control" name="main_category" id="main_category">
-                                    <option>Men</option>
-                                    <option>Women</option>
-                                    <option>Kids</option>
+                                    <option selected>{{$subCategory->main_category}}</option>
+                                    @foreach($mainCategories as $mainCategory)
+                                    <option value="{{$mainCategory->main_category}}">{{$mainCategory->main_category}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -466,7 +488,7 @@
 
                             <div class="form-group">
                                 <label for="sub_category">Sub Category</label>
-                                <input type="text" class="form-control" id="sub_category" name="sub_category">
+                                <input type="text" class="form-control" id="sub_category" name="sub_category" value="{{$subCategory->sub_category}}">
                             </div>
 
 
@@ -479,6 +501,46 @@
                 </div>
             </div>
         </div>
+        @endforeach -->
+
+
+
+
+
+
+        <!-- delete modal -->
+        <!-- @foreach($subCategories as $subCategory)
+        <div class="modal fade" id="myDeleteModal{{ $subCategory->id }}" tabindex="-1" aria-labelledby="myDeleteModal{{ $subCategory->id }}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myDeleteModal{{ $subCategory->id }}">Confirm Delete</h5>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete this information?
+                    </div>
+                    <div class="modal-footer">
+                        <form action="{{ route('sub_category_delete', $subCategory->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        @endforeach -->
+
+
+
+
+
+
+
+
+
 
 
 
@@ -528,6 +590,18 @@
     <script src="Admin/js/dashboard.js"></script>
     <script src="Admin/js/Chart.roundedBarCharts.js"></script>
     <!-- End custom js for this page-->
+
+
+    <script>
+        $(document).ready(function() {
+            $("#navbar-search-input").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".t_row_data").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

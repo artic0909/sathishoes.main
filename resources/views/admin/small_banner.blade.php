@@ -297,12 +297,14 @@
                           </thead>
                           <tbody>
 
+                            @foreach($smallBanners as $smallBanner)
                             <tr>
-                              <td><img src="{{asset('images/empty.jpg')}}" alt=""></td>
-                              <td>xyz</td>
-                              <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                              <td><a href="" class="text-danger" style="font-size: 1.4rem;"><i class="fa-solid fa-trash-can"></i></a></td>
+                              <td><img src="{{ asset('storage/' . $smallBanner->small_banner) }}" alt=""></td>
+                              <td>{{$smallBanner->small_banner_title}}</td>
+                              <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal{{$smallBanner->id}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                              <td><a href="" class="text-danger" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myDeleteModal{{$smallBanner->id}}"><i class="fa-solid fa-trash-can"></i></a></td>
                             </tr>
+                            @endforeach
 
                           </tbody>
                         </table>
@@ -387,7 +389,8 @@
 
 
           <div class="modal-body">
-            <form>
+            <form action="{{ route('small_banner_add') }}" method="POST" enctype="multipart/form-data">
+              @csrf
               <div class="form-group">
                 <label for="small_banner">Small Banner</label>
                 <input type="file" class="form-control" id="small_banner" name="small_banner">
@@ -415,7 +418,8 @@
 
 
     <!-- edit modal -->
-    <div class="modal" id="myEditModal">
+    @foreach($smallBanners as $smallBanner)
+    <div class="modal" id="myEditModal{{$smallBanner->id}}">
       <div class="modal-dialog">
         <div class="modal-content">
 
@@ -426,7 +430,9 @@
 
 
           <div class="modal-body">
-            <form>
+            <form action="{{ route('small_banner_edit', $smallBanner->id) }}" method="POST" enctype="multipart/form-data">
+              @csrf
+              @method('PUT')
               <div class="form-group">
                 <label for="small_banner">Small Banner</label>
                 <input type="file" class="form-control" id="small_banner" name="small_banner">
@@ -434,7 +440,7 @@
               </div>
               <div class="form-group">
                 <label for="small_banner_title">Title</label>
-                <input type="text" class="form-control" id="small_banner_title" name="small_banner_title">
+                <input type="text" class="form-control" id="small_banner_title" name="small_banner_title" value="{{$smallBanner->small_banner_title}}">
               </div>
 
 
@@ -447,9 +453,37 @@
         </div>
       </div>
     </div>
+    @endforeach
 
 
 
+
+
+
+    <!-- delete modal -->
+    @foreach($smallBanners as $smallBanner)
+    <div class="modal fade" id="myDeleteModal{{ $smallBanner->id }}" tabindex="-1" aria-labelledby="myDeleteModal{{ $smallBanner->id }}" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="myDeleteModal{{ $smallBanner->id }}">Confirm Delete</h5>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete this information?
+          </div>
+          <div class="modal-footer">
+            <form action="{{ route('small_banner_delete', $smallBanner->id) }}" method="POST">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-danger">Delete</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    @endforeach
 
 
 

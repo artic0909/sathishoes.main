@@ -299,14 +299,14 @@
                             </tr>
                           </thead>
                           <tbody>
-
+                            @foreach($bigBanners as $bigBanner)
                             <tr>
-                              <td><img src="{{asset('images/empty.jpg')}}" alt=""></td>
-                              <td>xyz</td>
-                              <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                              <td><a href="" class="text-danger" style="font-size: 1.4rem;"><i class="fa-solid fa-trash-can"></i></a></td>
+                              <td><img src="{{ asset('storage/' . $bigBanner->big_banner) }}" alt=""></td>
+                              <td>{{$bigBanner->big_banner_title}}</td>
+                              <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal{{$bigBanner->id}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                              <td><a href="" class="text-danger" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myDeleteModal{{$bigBanner->id}}"><i class="fa-solid fa-trash-can"></i></a></td>
                             </tr>
-
+                            @endforeach
                           </tbody>
                         </table>
                       </div>
@@ -378,6 +378,10 @@
 
 
 
+
+
+
+    
     <!-- add modal -->
     <div class="modal" id="myAddModal">
       <div class="modal-dialog">
@@ -390,7 +394,8 @@
 
 
           <div class="modal-body">
-            <form>
+            <form action="{{ route('big_banner_add') }}" method="POST" enctype="multipart/form-data">
+              @csrf
               <div class="form-group">
                 <label for="big_banner">Big Banner</label>
                 <input type="file" class="form-control" id="big_banner" name="big_banner">
@@ -418,7 +423,8 @@
 
 
     <!-- edit modal -->
-    <div class="modal" id="myEditModal">
+    @foreach($bigBanners as $bigBanner)
+    <div class="modal" id="myEditModal{{$bigBanner->id}}">
       <div class="modal-dialog">
         <div class="modal-content">
 
@@ -429,7 +435,9 @@
 
 
           <div class="modal-body">
-            <form>
+            <form action="{{ route('big_banner_edit', $bigBanner->id) }}" method="POST" enctype="multipart/form-data">
+              @csrf
+              @method('PUT')
               <div class="form-group">
                 <label for="big_banner">Big Banner</label>
                 <input type="file" class="form-control" id="big_banner" name="big_banner">
@@ -437,7 +445,7 @@
               </div>
               <div class="form-group">
                 <label for="big_banner_title">Title</label>
-                <input type="text" class="form-control" id="big_banner_title" name="big_banner_title">
+                <input type="text" class="form-control" id="big_banner_title" name="big_banner_title" value="{{$bigBanner->big_banner_title}}">
               </div>
 
 
@@ -450,6 +458,36 @@
         </div>
       </div>
     </div>
+    @endforeach
+
+
+
+    
+
+    <!-- delete modal -->
+    @foreach($bigBanners as $bigBanner)
+    <div class="modal fade" id="myDeleteModal{{ $bigBanner->id }}" tabindex="-1" aria-labelledby="myDeleteModal{{ $bigBanner->id }}" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="myDeleteModal{{ $bigBanner->id }}">Confirm Delete</h5>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete this information?
+          </div>
+          <div class="modal-footer">
+            <form action="{{ route('big_banner_delete', $bigBanner->id) }}" method="POST">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-danger">Delete</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    @endforeach
 
 
 
@@ -466,39 +504,29 @@
 
 
 
+    <!-- container-scroller -->
 
+    <!-- plugins:js -->
+    <script src="Admin/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="Admin/vendors/chart.js/Chart.min.js"></script>
+    <script src="Admin/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="Admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <script src="Admin/js/dataTables.select.min.js"></script>
 
-
-
-
-
-
-
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
-
-  <!-- plugins:js -->
-  <script src="Admin/vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <script src="Admin/vendors/chart.js/Chart.min.js"></script>
-  <script src="Admin/vendors/datatables.net/jquery.dataTables.js"></script>
-  <script src="Admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-  <script src="Admin/js/dataTables.select.min.js"></script>
-
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="Admin/js/off-canvas.js"></script>
-  <script src="Admin/js/hoverable-collapse.js"></script>
-  <script src="Admin/js/template.js"></script>
-  <script src="Admin/js/settings.js"></script>
-  <script src="Admin/js/todolist.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <script src="Admin/js/dashboard.js"></script>
-  <script src="Admin/js/Chart.roundedBarCharts.js"></script>
-  <!-- End custom js for this page-->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="Admin/js/off-canvas.js"></script>
+    <script src="Admin/js/hoverable-collapse.js"></script>
+    <script src="Admin/js/template.js"></script>
+    <script src="Admin/js/settings.js"></script>
+    <script src="Admin/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="Admin/js/dashboard.js"></script>
+    <script src="Admin/js/Chart.roundedBarCharts.js"></script>
+    <!-- End custom js for this page-->
 </body>
 
 </html>

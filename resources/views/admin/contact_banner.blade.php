@@ -297,12 +297,14 @@
                           </thead>
                           <tbody>
 
+                            @foreach($contactBanners as $contactBanner)
                             <tr>
-                              <td><img src="{{asset('images/empty.jpg')}}" alt=""></td>
-                              <td>xyz</td>
-                              <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                              <td><a href="" class="text-danger" style="font-size: 1.4rem;"><i class="fa-solid fa-trash-can"></i></a></td>
+                              <td><img src="{{ asset('storage/' . $contactBanner->contact_banner) }}" alt="" style="width: 100px; border-radius: 0; height: 50px;"></td>
+                              <td>{{$contactBanner->contact_banner_title}}</td>
+                              <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal{{$contactBanner->id}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                              <td><a href="" class="text-danger" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myDeleteModal{{$contactBanner->id}}"><i class="fa-solid fa-trash-can"></i></a></td>
                             </tr>
+                            @endforeach
 
                           </tbody>
                         </table>
@@ -387,7 +389,8 @@
 
 
           <div class="modal-body">
-            <form>
+            <form action="{{ route('contact_banner_add') }}" method="POST" enctype="multipart/form-data">
+              @csrf
               <div class="form-group">
                 <label for="contact_banner">Contact Banner</label>
                 <input type="file" class="form-control" id="contact_banner" name="contact_banner">
@@ -415,7 +418,8 @@
 
 
     <!-- edit modal -->
-    <div class="modal" id="myEditModal">
+    @foreach($contactBanners as $contactBanner)
+    <div class="modal" id="myEditModal{{ $contactBanner->id }}">
       <div class="modal-dialog">
         <div class="modal-content">
 
@@ -426,7 +430,9 @@
 
 
           <div class="modal-body">
-            <form>
+            <form action="{{ route('contact_banner_edit', $contactBanner->id) }}" method="POST" enctype="multipart/form-data">
+              @csrf
+              @method('PUT')
               <div class="form-group">
                 <label for="contact_banner">Contact Banner</label>
                 <input type="file" class="form-control" id="contact_banner" name="contact_banner">
@@ -434,7 +440,7 @@
               </div>
               <div class="form-group">
                 <label for="contact_banner_title">Title</label>
-                <input type="text" class="form-control" id="contact_banner_title" name="contact_banner_title">
+                <input type="text" class="form-control" id="contact_banner_title" name="contact_banner_title" value="{{$contactBanner->contact_banner_title}}">
               </div>
 
 
@@ -447,6 +453,54 @@
         </div>
       </div>
     </div>
+    @endforeach
+
+
+
+
+
+    <!-- delete modal -->
+    @foreach($contactBanners as $contactBanner)
+    <div class="modal fade" id="myDeleteModal{{ $contactBanner->id }}" tabindex="-1" aria-labelledby="myDeleteModal{{ $contactBanner->id }}" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="myDeleteModal{{ $contactBanner->id }}">Confirm Delete</h5>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete this information?
+          </div>
+          <div class="modal-footer">
+            <form action="{{ route('contact_banner_delete', $contactBanner->id) }}" method="POST">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-danger">Delete</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    @endforeach
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
