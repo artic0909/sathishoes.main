@@ -291,20 +291,18 @@
                           <thead>
                             <tr>
                               <th>Images</th>
-                              <th>Titles</th>
                               <th>Edit</th>
                               <th>Delete</th>
                             </tr>
                           </thead>
                           <tbody>
-
+                            @foreach($fixedCollections as $fixedCollection)
                             <tr>
-                              <td><img src="{{asset('images/empty.jpg')}}" alt=""></td>
-                              <td>xyz</td>
-                              <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                              <td><a href="" class="text-danger" style="font-size: 1.4rem;"><i class="fa-solid fa-trash-can"></i></a></td>
+                              <td><img src="{{ asset('storage/' . $fixedCollection->fixed_img) }}" alt=""></td>
+                              <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal{{$fixedCollection->id}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                              <td><a href="" class="text-danger" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myDeleteModal{{$fixedCollection->id}}"><i class="fa-solid fa-trash-can"></i></a></td>
                             </tr>
-
+                            @endforeach
                           </tbody>
                         </table>
                       </div>
@@ -388,15 +386,12 @@
 
 
           <div class="modal-body">
-            <form>
+            <form action="{{ route('fixed_img_add') }}" method="POST" enctype="multipart/form-data">
+              @csrf
               <div class="form-group">
                 <label for="fixed_img">images</label>
                 <input type="file" class="form-control" id="fixed_img" name="fixed_img">
                 <small id="emailHelp" class="form-text text-muted">Upload banner less than 1.5 MB</small>
-              </div>
-              <div class="form-group">
-                <label for="fixed_title">Title</label>
-                <input type="text" class="form-control" id="fixed_title" name="fixed_title">
               </div>
 
 
@@ -416,7 +411,8 @@
 
 
     <!-- edit modal -->
-    <div class="modal" id="myEditModal">
+    @foreach($fixedCollections as $fixedCollection)
+    <div class="modal" id="myEditModal{{$fixedCollection->id}}">
       <div class="modal-dialog">
         <div class="modal-content">
 
@@ -427,15 +423,16 @@
 
 
           <div class="modal-body">
-            <form>
+            <form action="{{ route('fixed_img_edit', $fixedCollection->id) }}" method="POST" enctype="multipart/form-data">
+              @csrf
+              @method('PUT')
+              <div class="form-group" style="display: flex; justify-content: center; align-items: center;">
+                <img src="{{ asset('storage/' . $fixedCollection->fixed_img) }}" style="width: 200px; border-radius: 20px;" alt="">
+              </div>
               <div class="form-group">
                 <label for="fixed_img">Images</label>
                 <input type="file" class="form-control" id="fixed_img" name="fixed_img">
                 <small id="emailHelp" class="form-text text-muted">Upload banner less than 1.5 MB</small>
-              </div>
-              <div class="form-group">
-                <label for="fixed_title">Title</label>
-                <input type="text" class="form-control" id="fixed_title" name="fixed_title">
               </div>
 
 
@@ -448,7 +445,7 @@
         </div>
       </div>
     </div>
-
+    @endforeach
 
 
 

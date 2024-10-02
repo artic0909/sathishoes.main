@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FixedCollectionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -148,10 +149,10 @@ Route::delete('/main-category/delete/{id}', [AdminController::class, 'main_categ
 
 
 
-Route::get('/admin-sub-category', [AdminController::class, 'sub_category_get'])->name('sub_category_get');
-Route::post('/admin-sub-category/add', [AdminController::class, 'sub_category_add'])->name('sub_category_add');
-Route::put('/admin-sub-category/edit/{id}', [AdminController::class, 'sub_category_edit'])->name('sub_category_edit');
-Route::delete('/admin-sub-category/delete/{id}', [AdminController::class, 'sub_category_delete'])->name('sub_category_delete');
+Route::get('/fixed-collection', [FixedCollectionController::class, 'fixed_img_get'])->name('fixed_img_get');
+Route::post('/fixed-collection/add', [FixedCollectionController::class, 'fixed_img_add'])->name('fixed_img_add');
+Route::put('/fixed-collection/edit/{id}', [FixedCollectionController::class, 'fixed_img_edit'])->name('fixed_img_edit');
+Route::delete('/fixed-collection/delete/{id}', [FixedCollectionController::class, 'fixed_img_delete'])->name('fixed_img_delete');
 
 
 
