@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Main Category</title>
+    <title>Sub Category</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="Admin/vendors/feather/feather.css">
     <link rel="stylesheet" href="Admin/vendors/ti-icons/css/themify-icons.css">
@@ -82,6 +82,28 @@
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                     <span class="icon-menu"></span>
                 </button>
+
+
+
+                <!-- searchbar -->
+                <ul class="navbar-nav mr-lg-2">
+                    <li class="nav-item nav-search d-none d-lg-block">
+                        <div class="input-group">
+                            <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                                <span class="input-group-text" id="search">
+                                    <i class="icon-search"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                        </div>
+                    </li>
+                </ul>
+
+
+
+
+
+
 
                 <ul class="navbar-nav navbar-nav-right">
 
@@ -206,8 +228,7 @@
                         </a>
                         <div class="collapse" id="ui-basic11">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="/main-category">Main Categories</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/admin-sub-category">Sub Categories</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="/main-category">Categories</a></li>
                             </ul>
                         </div>
                     </li>
@@ -266,6 +287,9 @@
 
 
 
+
+
+
             <!-- MAIN CONTENT PART START==================================================================================================================================== -->
             <!-- partial -->
             <div class="main-panel">
@@ -274,7 +298,7 @@
                         <div class="col-md-12 grid-margin">
                             <div class="row">
                                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                                    <h3 class="font-weight-bold">Main Category</h3>
+                                    <h3 class="font-weight-bold">Category</h3>
                                 </div>
 
 
@@ -284,22 +308,26 @@
                                 <div class="col-lg-12 grid-margin stretch-card mt-3">
                                     <div class="card">
                                         <div class="card-body">
+                                            <h4 class="card-title">Ratio: 535x535</h4>
                                             <div class="table-responsive">
                                                 <table class="table table-hover">
                                                     <thead>
                                                         <tr>
-
-                                                            <th>Category Name</th>
+                                                            <th>Images</th>
+                                                            <th>Main Categories</th>
+                                                            <th>Sub Categories</th>
                                                             <th>Edit</th>
                                                             <th>Delete</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach($mainCategories as $mainCategory)
-                                                        <tr>
-                                                            <td style="text-transform: uppercase;">{{$mainCategory->main_category}}</td>
-                                                            <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal{{$mainCategory->id}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                                                            <td><a href="" class="text-danger" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myDeleteModal{{$mainCategory->id}}"><i class="fa-solid fa-trash-can"></i></a></td>
+                                                        @foreach($subCategories as $subCategory)
+                                                        <tr class="t_row_data">
+                                                            <td><img src="{{ asset('storage/' . $subCategory->sub_category_image) }}" alt=""></td>
+                                                            <td style="text-transform: uppercase;">{{$subCategory->main_category}}</td>
+                                                            <td style="text-transform: capitalize;">{{$subCategory->sub_category}}</td>
+                                                            <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal{{$subCategory->id}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                                                            <td><a href="" class="text-danger" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myDeleteModal{{$subCategory->id}}"><i class="fa-solid fa-trash-can"></i></a></td>
                                                         </tr>
                                                         @endforeach
                                                     </tbody>
@@ -379,25 +407,37 @@
                 <div class="modal-content">
 
                     <div class="modal-header">
-                        <h4 class="modal-title">Add Main Category</h4>
+                        <h4 class="modal-title">Add Sub Category</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
-
 
                     <div class="modal-body">
                         <form action="{{ route('main_category_add') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
-                                <label for="main_category">Name</label>
-                                <input type="text" class="form-control" id="main_category" name="main_category">
+                                <label for="sub_category_image">Sub Category Image</label>
+                                <input type="file" class="form-control" id="sub_category_image" name="sub_category_image" accept="image/*">
+                                <small id="emailHelp" class="form-text text-muted">Upload an image less than 1.5 MB</small>
                             </div>
 
+                            <div class="form-group">
+                                <label for="main_category">Main Category</label>
+                                <select class="form-control" name="main_category" id="main_category">
+                                    <option style="text-transform: uppercase;" value="none" selected>Select</option>
+                                    <option style="text-transform: uppercase;" value="men">men</option>
+                                    <option style="text-transform: uppercase;" value="women">women</option>
+                                    <option style="text-transform: uppercase;" value="kids">kids</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sub_category">Sub Category</label>
+                                <input type="text" class="form-control" id="sub_category" name="sub_category">
+                            </div>
 
                             <button type="submit" class="btn btn-success">Submit</button>
                         </form>
                     </div>
-
-
 
                 </div>
             </div>
@@ -408,26 +448,47 @@
 
 
 
+
         <!-- edit modal -->
-        @foreach($mainCategories as $mainCategory)
-        <div class="modal" id="myEditModal{{$mainCategory->id}}">
+        @foreach($subCategories as $subCategory)
+        <div class="modal" id="myEditModal{{$subCategory->id}}">
             <div class="modal-dialog">
                 <div class="modal-content">
 
                     <div class="modal-header">
-                        <h4 class="modal-title">Edit Main Category</h4>
+                        <h4 class="modal-title">Edit Sub Category</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
 
 
                     <div class="modal-body">
-                        <form action="{{ route('main_category_edit', $mainCategory->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('main_category_edit', $subCategory->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
+                            <div class="form-group">
+                                <label for="sub_category_image">Sub Category Image</label>
+                                <input type="file" class="form-control" id="sub_category_image" name="sub_category_image">
+                                <small id="emailHelp" class="form-text text-muted">Upload banner less than 1.5 MB</small>
+                            </div>
+
 
                             <div class="form-group">
-                                <label for="main_category">Name</label>
-                                <input type="text" class="form-control" id="main_category" name="main_category" value="{{$mainCategory->main_category}}">
+                                <label for="main_category">Main Category</label>
+                                <select class="form-control" name="main_category" id="main_category">
+                                    <option style="text-transform: uppercase;" selected value="{{$subCategory->main_category}}">{{$subCategory->main_category}}</option>
+
+                                    <option style="text-transform: uppercase;" value="men">men</option>
+                                    <option style="text-transform: uppercase;" value="women">women</option>
+                                    <option style="text-transform: uppercase;" value="kids">kids</option>
+                                </select>
+                            </div>
+
+
+
+
+                            <div class="form-group">
+                                <label for="sub_category">Sub Category</label>
+                                <input type="text" class="form-control" id="sub_category" name="sub_category" value="{{$subCategory->sub_category}}">
                             </div>
 
 
@@ -448,18 +509,18 @@
 
 
         <!-- delete modal -->
-        @foreach($mainCategories as $mainCategory)
-        <div class="modal fade" id="myDeleteModal{{ $mainCategory->id }}" tabindex="-1" aria-labelledby="myDeleteModal{{ $mainCategory->id }}" aria-hidden="true">
+        @foreach($subCategories as $subCategory)
+        <div class="modal fade" id="myDeleteModal{{ $subCategory->id }}" tabindex="-1" aria-labelledby="myDeleteModal{{ $subCategory->id }}" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="myDeleteModal{{ $mainCategory->id }}">Confirm Delete</h5>
+                        <h5 class="modal-title" id="myDeleteModal{{ $subCategory->id }}">Confirm Delete</h5>
                     </div>
                     <div class="modal-body">
                         Are you sure you want to delete this information?
                     </div>
                     <div class="modal-footer">
-                        <form action="{{ route('main_category_delete', $mainCategory->id) }}" method="POST">
+                        <form action="{{ route('main_category_delete', $subCategory->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>
@@ -468,12 +529,9 @@
                     </div>
                 </div>
             </div>
-            <!-- page-body-wrapper ends -->
+
         </div>
         @endforeach
-
-
-
 
 
 
@@ -532,6 +590,18 @@
     <script src="Admin/js/dashboard.js"></script>
     <script src="Admin/js/Chart.roundedBarCharts.js"></script>
     <!-- End custom js for this page-->
+
+
+    <script>
+        $(document).ready(function() {
+            $("#navbar-search-input").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".t_row_data").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

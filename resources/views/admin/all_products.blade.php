@@ -206,8 +206,7 @@
                         </a>
                         <div class="collapse" id="ui-basic11">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="/main-category">Main Categories</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/admin-sub-category">Sub Categories</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="/main-category">Categories</a></li>
                             </ul>
                         </div>
                     </li>
@@ -293,8 +292,7 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Images</th>
-                                                            <th>Main Category</th>
-                                                            <th>Sub Category</th>
+                                                            <th>Category</th>
                                                             <th>Version Category</th>
                                                             <th>Product Title</th>
                                                             <th>Product Price</th>
@@ -309,20 +307,28 @@
                                                     <tbody>
                                                         @foreach($adminProducts as $adminProduct)
                                                         <tr>
-                                                            <td><img src="{{ asset('storage/' . $adminProduct->product_image) }}" alt=""></td>
-                                                            <td style="text-transform: uppercase;">{{$adminProduct->main_category}}</td>
-                                                            <td style="text-transform: capitalize;">{{$adminProduct->sub_category}}</td>
-                                                            <td style="text-transform: capitalize;">{{$adminProduct->version_category}}</td>
-                                                            <td style="text-transform: capitalize;">{{$adminProduct->product_title}}</td>
-                                                            <td>₹ {{$adminProduct->product_price}}</td>
-                                                            <td>{{$adminProduct->product_desc}}</td>
-                                                            <td>{{$adminProduct->product_colors}}</td>
-                                                            <td>{{$adminProduct->product_sku}}</td>
-                                                            <td><a href="{{$adminProduct->product_link}}">Link</a></td>
-                                                            <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal{{$adminProduct->id}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                                                            <td><a href="" class="text-danger" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myDeleteModal{{$adminProduct->id}}"><i class="fa-solid fa-trash-can"></i></a></td>
+                                                            <td><img src="" alt=""></td>
+                                                            <td style="text-transform: uppercase;"></td>
+                                                            <td style="text-transform: capitalize;"></td>
+                                                            <td style="text-transform: capitalize;"></td>
+                                                            <td>₹ </td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td><a href="">Link</a></td>
+                                                            <td>
+                                                                <a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal">
+                                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                                </a>
+                                                            </td>
+                                                            <td>
+                                                                <a href="" class="text-danger" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myDeleteModal">
+                                                                    <i class="fa-solid fa-trash-can"></i>
+                                                                </a>
+                                                            </td>
                                                         </tr>
-                                                        @endforeach
+                                                       @endforeach
+
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -415,27 +421,16 @@
 
 
                             <div class="form-group">
-                                <label for="main_category">Main Category</label>
-                                <select class="form-control" name="main_category" id="main_category">
+                                <label for="category_id">Main Category</label>
+                                <select class="form-control" name="category_id" id="category_id">
                                     <option value="none" style="text-transform: capitalize;" selected>None</option>
-                                    @foreach($mainCategories as $mainCategory)
-                                    <option style="text-transform: capitalize;" value="{{$mainCategory->main_category}}">{{$mainCategory->main_category}}</option>
+                                    @foreach($categories as $category)
+                                    <option style="text-transform: capitalize;" value="{{$category->id}}">{{$category->main_category}}</option>
                                     @endforeach
                                 </select>
                             </div>
 
 
-
-
-                            <div class="form-group">
-                                <label for="sub_category">Sub Category</label>
-                                <select class="form-control" name="sub_category" id="sub_category">
-                                    <option value="none" style="text-transform: capitalize;" selected>None</option>
-                                    @foreach($subCategories as $subCategory)
-                                    <option style="text-transform: capitalize;" value="{{$subCategory->sub_category}}">{{$subCategory->sub_category}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
 
 
 

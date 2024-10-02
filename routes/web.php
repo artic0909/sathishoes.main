@@ -156,7 +156,4 @@ Route::delete('/admin-sub-category/delete/{id}', [AdminController::class, 'sub_c
 
 
 
-Route::get('/all-products', [ProductController::class, 'products_get'])->name('products_get');
-Route::post('/all-products/add', [ProductController::class, 'product_add'])->name('product_add');
-Route::put('/all-products/edit/{id}', [ProductController::class, 'product_edit'])->name('product_edit');
-Route::delete('/all-products/delete/{id}', [ProductController::class, 'product_delete'])->name('product_delete');
+

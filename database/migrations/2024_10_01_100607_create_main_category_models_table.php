@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('main_category_models', function (Blueprint $table) {
             $table->id();
             $table->string('main_category');
-            $table->string('slug')->unique();
+            $table->string('sub_category');
+            $table->string('sub_category_image');
             $table->timestamps();
         });
     }

@@ -6,6 +6,7 @@ use App\Models\BigBannerModel;
 use App\Models\ContactBannerModel;
 use App\Models\MainCategoryModel;
 use App\Models\SmallBannerModel;
+use Illuminate\Container\Attributes\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -45,15 +46,12 @@ class AdminController extends Controller
 
     public function main_category_get()
     {
-        $mainCategories = MainCategoryModel::orderBy('created_at', 'desc')->get();
-        return view('admin.main_category', compact('mainCategories'));
+        $subCategories = MainCategoryModel::orderBy('created_at', 'desc')->get();
+        return view('admin.category', compact('subCategories'));
     }
 
 
-    public function sub_category_get()
-    {
-        
-    }
+
     // All get==========================================================================================
 
 
@@ -328,100 +326,121 @@ class AdminController extends Controller
 
 
 
-    // MainCategory add==============================================================================
 
+
+
+
+
+
+
+
+
+    // mainCategory add==============================================================================
     public function main_category_add(Request $request)
     {
-        // Validate input
+        // Validate the request data
         $validated = $request->validate([
+            'sub_category_image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'main_category' => 'required|string|max:255',
+            'sub_category' => 'required|string|max:255',
         ]);
 
-        // Create new main category
-        \Illuminate\Support\Str::slug($validated['main_category']); // Generate slug using fully qualified name
+        // Handle image upload if present
+        if ($request->hasFile('sub_category_image')) {
+            $file = $request->file('sub_category_image');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs('uploads/subcategories', $fileName, 'public');
+        }
+
+        
+
+        // Create the mainCategory
         MainCategoryModel::create([
-            'main_category' => $validated['main_category'],
-            'slug' => \Illuminate\Support\Str::slug($validated['main_category']),
+            'sub_category_image' => $filePath ?? null,
+            'main_category' => $request->input('main_category'),
+            'sub_category' => $request->input('sub_category'),
         ]);
 
-        return back()->with('success', 'Added Successfully!');
+        return back()->with('success', 'mainCategory added successfully!');
     }
 
 
 
 
 
-    // MainCategory edit==============================================================================
+
+
+
+
+    // mainCategory edit==============================================================================
     public function main_category_edit(Request $request, $id)
     {
-        // Validate input
+        // Validate the request data
         $validated = $request->validate([
-            'main_category' => 'required|string|max:255', // Ensure it's required and has a max length
+            'sub_category_image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'main_category' => 'required|string|max:255',
+            'sub_category' => 'required|string|max:255',
         ]);
 
-        // Find the main category by ID
-        $mainCategoryInfo = MainCategoryModel::find($id);
+        // Find the mainCategory by ID
+        $mainCategory = MainCategoryModel::find($id);
 
-        if ($mainCategoryInfo) {
-            // Update the main category and its slug
-            $mainCategoryInfo->main_category = $validated['main_category'];
-            $mainCategoryInfo->slug = \Illuminate\Support\Str::slug($validated['main_category']); // Generate slug
-            $mainCategoryInfo->save();
+        if ($mainCategory) {
+            // Handle image upload if new image is provided
+            if ($request->hasFile('sub_category_image')) {
+                // Delete the old image if it exists
+                $oldImagePath = public_path('storage/' . $mainCategory->sub_category_image);
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
 
-            return back()->with('success', 'Updated successfully!');
+                // Store the new image
+                $file = $request->file('sub_category_image');
+                $fileName = time() . '_' . $file->getClientOriginalName();
+                $filePath = 'uploads/subcategories/' . $fileName; // Define the new file path
+                $file->move(public_path('storage/uploads/subcategories'), $fileName); // Move the file
+
+                // Update the image path in the mainCategory
+                $mainCategory->sub_category_image = $filePath;
+            }
+
+            
+            $mainCategory->main_category = $request->input('main_category');
+            $mainCategory->sub_category = $request->input('sub_category');
+            $mainCategory->save(); // Save changes
+
+            return back()->with('success', 'mainCategory updated successfully!');
         } else {
-            return back()->with('error', 'Not found.');
+            return back()->with('error', 'mainCategory not found.');
         }
     }
 
 
 
-    // MainCategory delete==============================================================================
+
+
+
+
+
+    // mainCategory delete==============================================================================
     public function main_category_delete($id)
     {
-        $mainCategoryInfo = MainCategoryModel::find($id);
+        // Find the mainCategory by ID
+        $mainCategory = MainCategoryModel::find($id);
 
-        if ($mainCategoryInfo) {
+        if ($mainCategory) {
+            // Delete the image from the public storage if it exists
+            $imagePath = public_path('storage/' . $mainCategory->sub_category_image);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
 
-            $mainCategoryInfo->delete();
+            // Delete the mainCategory
+            $mainCategory->delete();
 
-            return back()->with('success', 'deleted successfully!');
+            return back()->with('success', 'mainCategory deleted successfully!');
         } else {
-            return back()->with('error', 'not found.');
+            return back()->with('error', 'mainCategory not found.');
         }
-    }
-
-
-
-
-
-
-
-
-
-    // SubCategory add==============================================================================
-    public function sub_category_add(Request $request)
-    {
-
-    }
-    
-    
-
-
-
-    // SubCategory edit==============================================================================
-    public function sub_category_edit(Request $request, $id)
-    {
-
-    }
-    
-
-
-
-
-    // SubCategory delete==============================================================================
-    public function sub_category_delete($id)
-    {
-
     }
 }

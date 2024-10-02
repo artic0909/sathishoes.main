@@ -206,8 +206,7 @@
                         </a>
                         <div class="collapse" id="ui-basic11">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="/main-category">Main Categories</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="/admin-sub-category">Sub Categories</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="/main-category">Categories</a></li>
                             </ul>
                         </div>
                     </li>
