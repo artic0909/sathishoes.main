@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Customer Support</title>
+    <title>Franchise Details</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="Admin/vendors/feather/feather.css">
     <link rel="stylesheet" href="Admin/vendors/ti-icons/css/themify-icons.css">
@@ -82,6 +82,28 @@
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                     <span class="icon-menu"></span>
                 </button>
+
+
+
+                <!-- searchbar -->
+                <ul class="navbar-nav mr-lg-2">
+                    <li class="nav-item nav-search d-none d-lg-block">
+                        <div class="input-group">
+                            <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                                <span class="input-group-text" id="search">
+                                    <i class="icon-search"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                        </div>
+                    </li>
+                </ul>
+
+
+
+
+
+
 
                 <ul class="navbar-nav navbar-nav-right">
 
@@ -299,7 +321,7 @@
                         <div class="col-md-12 grid-margin">
                             <div class="row">
                                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                                    <h3 class="font-weight-bold">Customer Support</h3>
+                                    <h3 class="font-weight-bold">Franchise Details</h3>
                                 </div>
 
 
@@ -313,23 +335,19 @@
                                                 <table class="table table-hover">
                                                     <thead>
                                                         <tr>
-                                                            <th>First Name</th>
-                                                            <th>Last Name</th>
-                                                            <th>Problems</th>
-                                                            <th>Email</th>
-                                                            <th>Whatsapp</th>
+                                                            <th>Title</th>
+                                                            <th>Description</th>
+                                                            <th>Edit</th>
                                                             <th>Delete</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
 
-                                                        <tr>
-                                                            <td>xyz</td>
-                                                            <td>xyz</td>
-                                                            <td>problems</td>
-                                                            <td><a href="" class="text-primary" style="font-size: 1.6rem;"><i class="fa-solid fa-envelope"></i></a></td>
-                                                            <td><a href="" class="text-success" style="font-size: 1.6rem;"><i class="fa-solid fa-comment-dots"></i></a></td>
-                                                            <td><a href="" class="text-danger" style="font-size: 1.6rem;"><i class="fa-solid fa-trash-can"></i></a></td>
+                                                        <tr class="t_row_data">
+                                                            <td style="text-transform: uppercase;">sgsfg</td>
+                                                            <td style="text-transform: capitalize;">fgdg</td>
+                                                            <td><a href="" class="text-success" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myEditModal"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                                                            <td><a href="" class="text-danger" style="font-size: 1.4rem;" data-toggle="modal" data-target="#myDeleteModal"><i class="fa-solid fa-trash-can"></i></a></td>
                                                         </tr>
 
                                                     </tbody>
@@ -385,6 +403,160 @@
 
 
 
+
+
+
+
+
+
+
+
+
+        <!-- floating add btn -->
+        <div class="floating-btn-div" data-toggle="modal" data-target="#myAddModal">
+            <button class="floating-btn">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        </div>
+
+
+
+        <!-- add modal -->
+        <div class="modal" id="myAddModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add Franchise Details</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            @csrf
+
+                            <div class="form-group">
+                                <label for="fr_title">Title</label>
+                                <input type="text" class="form-control" id="fr_title" name="fr_title">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="sub_category">Description</label>
+                                <textarea name="fr_desc" class="form-control" id="fr_desc"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <!-- edit modal -->
+
+        <div class="modal" id="myEditModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit Franchise Details</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            @csrf
+
+                            <div class="form-group">
+                                <label for="fr_title">Title</label>
+                                <input type="text" class="form-control" id="fr_title" name="fr_title">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="sub_category">Description</label>
+                                <textarea name="fr_desc" class="form-control" id="fr_desc"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <!-- delete modal -->
+        
+        <div class="modal fade" id="myDeleteModal" tabindex="-1" aria-labelledby="myDeleteModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myDeleteModal">Confirm Delete</h5>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete this information?
+                    </div>
+                    <div class="modal-footer">
+                        <form action="" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
@@ -410,6 +582,18 @@
     <script src="Admin/js/dashboard.js"></script>
     <script src="Admin/js/Chart.roundedBarCharts.js"></script>
     <!-- End custom js for this page-->
+
+
+    <script>
+        $(document).ready(function() {
+            $("#navbar-search-input").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".t_row_data").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

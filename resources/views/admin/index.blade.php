@@ -205,6 +205,28 @@
 
 
 
+
+          <!-- franchise -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic10" aria-expanded="false" aria-controls="ui-basic">
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">Franchise</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic10">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/franchise-buyers">Buyers</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/franchise-details">Franchise Details</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/franchise-other-details">Others Details</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/franchise-contact-details">Contact Details</a></li>
+              </ul>
+            </div>
+          </li>
+
+
+
+
+
           <!-- Fixed Collection -->
           <li class="nav-item">
             <a class="nav-link" href="/fixed-collection">

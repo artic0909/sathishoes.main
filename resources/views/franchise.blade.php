@@ -665,7 +665,7 @@
                                                 LinkedIn</a>
                                         </div>
                                         <div class="text-hover">
-                                            <a href=""><i class="fa-solid fa-headset"></i> You Need
+                                            <a target="_blank" href="/contact-us"><i class="fa-solid fa-headset"></i> You Need
                                                 Support</a>
                                         </div>
                                     </div>

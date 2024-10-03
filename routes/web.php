@@ -74,6 +74,34 @@ Route::get('/customer-support', function () {
 
 
 
+
+
+
+
+// Franchise =========================================
+Route::get('/franchise-details', function () {
+    return view('admin.franchise_details');
+})->middleware(['auth', 'verified'])->name('franchise-details');
+
+Route::get('/franchise-other-details', function () {
+    return view('admin.franchise_other_details');
+})->middleware(['auth', 'verified'])->name('franchise-other-details');
+
+Route::get('/franchise-contact-details', function () {
+    return view('admin.franchise_contact_details');
+})->middleware(['auth', 'verified'])->name('franchise-contact-details');
+
+Route::get('/franchise-buyers', function () {
+    return view('admin.franchise_buyers');
+})->middleware(['auth', 'verified'])->name('franchise-buyers');
+
+
+
+
+
+
+
+
 // User's view ====================================================================================
 Route::get('/', function () {
     return view('home');

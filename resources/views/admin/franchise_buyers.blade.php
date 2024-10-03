@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Customer Support</title>
+    <title>Buyers Details</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="Admin/vendors/feather/feather.css">
     <link rel="stylesheet" href="Admin/vendors/ti-icons/css/themify-icons.css">
@@ -82,6 +82,28 @@
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                     <span class="icon-menu"></span>
                 </button>
+
+
+
+                <!-- searchbar -->
+                <ul class="navbar-nav mr-lg-2">
+                    <li class="nav-item nav-search d-none d-lg-block">
+                        <div class="input-group">
+                            <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                                <span class="input-group-text" id="search">
+                                    <i class="icon-search"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                        </div>
+                    </li>
+                </ul>
+
+
+
+
+
+
 
                 <ul class="navbar-nav navbar-nav-right">
 
@@ -299,7 +321,7 @@
                         <div class="col-md-12 grid-margin">
                             <div class="row">
                                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                                    <h3 class="font-weight-bold">Customer Support</h3>
+                                    <h3 class="font-weight-bold">Buyers Details</h3>
                                 </div>
 
 
@@ -313,23 +335,27 @@
                                                 <table class="table table-hover">
                                                     <thead>
                                                         <tr>
-                                                            <th>First Name</th>
-                                                            <th>Last Name</th>
-                                                            <th>Problems</th>
+                                                            <th>Name</th>
                                                             <th>Email</th>
-                                                            <th>Whatsapp</th>
-                                                            <th>Delete</th>
+                                                            <th>Mobile No.</th>
+                                                            <th>District</th>
+                                                            <th>Location</th>
+                                                            <th>Budget</th>
+                                                            <th>Purchase Timeframe</th>
+                                                            <th>Download</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
 
-                                                        <tr>
-                                                            <td>xyz</td>
-                                                            <td>xyz</td>
-                                                            <td>problems</td>
-                                                            <td><a href="" class="text-primary" style="font-size: 1.6rem;"><i class="fa-solid fa-envelope"></i></a></td>
-                                                            <td><a href="" class="text-success" style="font-size: 1.6rem;"><i class="fa-solid fa-comment-dots"></i></a></td>
-                                                            <td><a href="" class="text-danger" style="font-size: 1.6rem;"><i class="fa-solid fa-trash-can"></i></a></td>
+                                                        <tr class="t_row_data">
+                                                            <td style="text-transform: uppercase;">sgsfg</td>
+                                                            <td style="text-transform: capitalize;">fgdg@</td>
+                                                            <td style="text-transform: capitalize;">345345</td>
+                                                            <td style="text-transform: capitalize;">dfsdf</td>
+                                                            <td style="text-transform: capitalize;">dfsdf</td>
+                                                            <td style="text-transform: capitalize;">₹ INR 4 Cr.</td>
+                                                            <td style="text-transform: capitalize;">1 Month</td>
+                                                            <td><a href="" class="text-danger" style="font-size: 1.7rem;"><i class="fa-solid fa-file-pdf"></i></a></td>
                                                         </tr>
 
                                                     </tbody>
@@ -385,6 +411,10 @@
 
 
 
+
+
+
+
         <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
@@ -410,6 +440,18 @@
     <script src="Admin/js/dashboard.js"></script>
     <script src="Admin/js/Chart.roundedBarCharts.js"></script>
     <!-- End custom js for this page-->
+
+
+    <script>
+        $(document).ready(function() {
+            $("#navbar-search-input").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".t_row_data").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
