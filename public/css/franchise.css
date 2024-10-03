@@ -1,0 +1,128 @@
+.blinking_effect1 {
+  background-color: red;
+  animation: blink1 1s infinite;
+}
+
+@keyframes blink1 {
+  0%,
+  100% {
+    background-color: red;
+  }
+  50% {
+    background-color: black;
+  }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.fr_main {
+  .fr_main_inner {
+
+
+
+    .fr_left {
+      .fr_left_inner {
+        .top_title {
+          color: rgb(255, 255, 255);
+          font-weight: 700;
+          font-size: 1.2rem;
+          background: #000;
+          padding: 5px;
+        }
+
+        .fr_logo {
+          width: 200px;
+        }
+
+        .left_content {
+          .left_content_inner {
+            display: grid;
+            gap: 6px;
+          }
+          .left_content_inner li {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 2fr 1fr 2fr;
+            color: black;
+          }
+
+          .left_content_inner2 {
+            .left_inner_2 p {
+              color: black;
+              text-align: justify;
+            }
+
+            .left_inner_2 .l_p {
+              div {
+                padding: 4px;
+                a {
+                  color: black;
+                }
+              }
+            }
+
+            .left_inner_2 li {
+              list-style: none;
+              display: grid;
+              grid-template-columns: 2fr 1fr 2fr;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+
+    .fr_right {
+      .fr_right_inner {
+        .r_title {
+          color: white;
+          background: #000;
+          font-weight: 700;
+          font-size: 1.2rem;
+          padding: 5px;
+          text-align: center;
+        }
+
+        .form_main {
+          .form_inner {
+            display: grid;
+            gap: 20px;
+            background: #6e6e6e2f;
+            padding: 10px;
+
+            label {
+              padding-bottom: 5px;
+              color: black;
+            }
+            input {
+              color: black;
+              border-radius: 0;
+            }
+            select {
+              color: black;
+              border-radius: 0;
+            }
+
+            .button_main a{
+                width: 100%;
+                font-weight: 700;
+            }
+          }
+        }
+      }
+    }
+
+
+
+
+  }
+}

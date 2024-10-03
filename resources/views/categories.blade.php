@@ -363,9 +363,8 @@
                         </ul>
                     </div>
                     <div class="col d-none d-md-block">
-                        <p class="text-center text-black m-0">
-                            <strong>Special Offer</strong>: Free Shipping on all the orders
-                            above ₹700
+                        <p class="text-center text-black m-0 top_text">
+                            <a href="/buy-franchise" target="_blank" class="text-hover"><i class="fa-solid fa-quote-left"></i><strong> Buy franchise, </strong>Step into success: own your shoes <strong>Franchise Today </strong> <i class="fa-solid fa-certificate blinking_effect"></i></a>
                         </p>
                     </div>
                     <div class="col">
@@ -431,6 +430,12 @@
                                     <li>
                                         <a href="/categories" class="dropdown-item">View All</a>
                                     </li>
+
+                                    <li>
+                                        <a href="/buy-franchise" class="dropdown-item">Buy Franchise</a>
+                                    </li>
+
+
                                     <li>
                                         <a href="/latest-products" class="dropdown-item">Latest Products</a>
                                     </li>
@@ -449,6 +454,12 @@
                             <li class="nav-item">
                                 <a class="nav-link me-5 text-hover" href="/categories">Kids</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link me-5 text-hover" href="/buy-franchise">Franchise</a>
+                            </li>
+
+
                             <li class="nav-item">
                                 <a class="nav-link me-5" href="/about">About</a>
                             </li>

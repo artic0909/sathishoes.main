@@ -2,23 +2,24 @@
 <html lang="en">
 
 <head>
-    <title>Latest Products - Sathi Shoes</title>
+    <title>Buy Now - Sathi Shoes</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="author" content="TemplatesJungle" />
-    <meta name="keywords" content="sathis shoes, latest arrivals, newest collection, trendy footwear, sports shoes, casual sneakers, formal styles, premium quality, comfort, unbeatable prices" />
+    <meta name="keywords" content="Sathi Shoes, best products, premium footwear, men's shoes, women's shoes, kids' shoes, shop online, sports shoes, casual shoes, formal shoes" />
 
     <meta
         name="description"
-        content="Discover the latest arrivals at Sathi Shoes. Shop our newest collection of trendy footwear for men, women, and kids, including sports shoes, casual sneakers, and formal styles. Stay ahead with the freshest designs featuring premium quality, comfort, and unbeatable prices" />
+        content="Discover the best products from Sathi Shoes, offering a wide range of premium footwear. Explore our categories for men's, women's, and kids' shoes, including sports, casual, and formal styles. Shop online for high-quality shoes that combine comfort, durability, and fashion." />
 
     <!-- css -->
     <link rel="stylesheet" href="{{ asset('css/vendor.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/common.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/franchise.css') }}" />
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,6 +32,14 @@
 
     <!-- icon -->
     <link rel="icon" href="images/logoS.png" type="image/png">
+
+
+    <!-- CDN -->
+    <!-- MDB JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script>
+
+    <!-- Font Awesome Icons (for stars and icons) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -276,92 +285,7 @@
 
 
 
-    <!-- quick view -->
-    <div class="modal fade" id="modaltoggle" aria-hidden="true" tabindex="-1">
-        <div
-            class="modal-dialog modal-fullscreen-md-down modal-md modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="col-lg-12 col-md-12 me-3">
-                        <div class="image-holder">
-                            <img src="images/summary-item1.jpg" alt="Shoes" />
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12">
-                        <div class="summary">
-                            <div class="summary-content fs-6">
-                                <div
-                                    class="product-header d-flex justify-content-between mt-4">
-                                    <h3 class="display-7">Running Shoes For Men</h3>
-                                    <div class="modal-close-btn">
-                                        <button
-                                            type="button"
-                                            class="btn-close"
-                                            data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                </div>
-                                <span class="product-price fs-3">₹99</span>
-                                <div class="product-details">
-                                    <p class="fs-7">
-                                        Buy good shoes and a good mattress, because when you're
-                                        not in one you're in the other. With four pairs of shoes,
-                                        I can travel the world.
-                                    </p>
-                                </div>
-                                <ul class="select">
-                                    <li><strong>Colour Shown:</strong> Red, White, Black</li>
-                                    <li><strong>Style:</strong> SM3018-100</li>
-                                </ul>
-                                <div class="variations-form shopify-cart">
-                                    <div class="row">
 
-
-                                        <div class="col-md-6">
-                                            <a
-                                                rel="nofollow"
-                                                data-no-instant=""
-                                                href="#"
-                                                class="out-stock button">Out of stock</a>
-                                            <button
-                                                type="submit"
-                                                class="btn btn-medium btn-black hvr-sweep-to-right">
-                                                <a href="" class="" style="color: white; font-weight: 600;">Cancel</a>
-                                            </button>
-                                        </div>
-
-
-
-
-                                        <div class="col-md-6">
-                                            <a
-                                                rel="nofollow"
-                                                data-no-instant=""
-                                                href="#"
-                                                class="out-stock button">Out of stock</a>
-                                            <button
-                                                type="submit"
-                                                class="btn btn-medium btn-black hvr-sweep-to-right">
-                                                <a href="" class="" style="color: white; font-weight: 600;">Add to cart</a>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- variations-form -->
-                                <div class="categories d-flex flex-wrap pt-3">
-                                    <strong class="pe-2">Categories:</strong>
-                                    <a href="#" title="categories">Clothing,</a>
-                                    <a href="#" title="categories">Men's Clothes,</a>
-                                    <a href="#" title="categories">Tops & T-Shirts</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- / quick view -->
 
 
 
@@ -569,8 +493,6 @@
 
 
 
-
-
     <!-- <section class="discount-coupon py-2 my-2 py-md-5 my-md-5">
       <div class="container">
         <div class="bg-gray coupon position-relative p-5">
@@ -605,313 +527,347 @@
 
 
 
-
-
-
-    <section id="featured-products" class="product-store">
-        <div class="container-md">
-            <div
-                class="display-header d-flex align-items-center justify-content-between">
-                <h2 class="section-title text-uppercase">Latest Products</h2>
-
-            </div>
-            <div class="product-content padding-small">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5">
-
-
-                    <div class="col mb-4">
-                        <div class="product-card position-relative">
-                            <div class="card-img">
-                                <img
-                                    
-                                    src="{{asset('images/card-item1.jpg')}}"
-                                    alt="product-item"
-                                    class="product-image img-fluid" />
-                                <div
-                                    class="cart-concern position-absolute d-flex justify-content-center">
-                                    <div
-                                        class="cart-button d-flex gap-2 justify-content-center align-items-center">
-                                        <button
-                                            type="button"
-                                            class="btn btn-light">
-                                            <a target="_blank" href=""><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
-                                        </button>
-                                        <button
-                                            type="button"
-                                            class="btn btn-light"
-                                            data-bs-target="#modaltoggle"
-                                            data-bs-toggle="modal">
-                                            <svg class="quick-view">
-                                                <use xlink:href="#quick-view"></use>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <!-- cart-concern -->
-                            </div>
-                            <div
-                                class="card-detail d-flex justify-content-between align-items-center mt-3">
-                                <h3 class="card-title fs-6 fw-normal m-0">
-                                    <a href="index.html">Running shoes for men</a>
-                                </h3>
-                                <span class="card-price fw-bold">₹99</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col mb-4">
-                        <div class="product-card position-relative">
-                            <div class="card-img">
-                                <img
-                                    
-                                    src="{{asset('images/card-item2.jpg')}}"
-                                    alt="product-item"
-                                    class="product-image img-fluid" />
-                                <div
-                                    class="cart-concern position-absolute d-flex justify-content-center">
-                                    <div
-                                        class="cart-button d-flex gap-2 justify-content-center align-items-center">
-                                        <button
-                                            type="button"
-                                            class="btn btn-light">
-                                            <a target="_blank" href=""><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
-                                        </button>
-                                        <button
-                                            type="button"
-                                            class="btn btn-light"
-                                            data-bs-target="#modaltoggle"
-                                            data-bs-toggle="modal">
-                                            <svg class="quick-view">
-                                                <use xlink:href="#quick-view"></use>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <!-- cart-concern -->
-                            </div>
-                            <div
-                                class="card-detail d-flex justify-content-between align-items-center mt-3">
-                                <h3 class="card-title fs-6 fw-normal m-0">
-                                    <a href="index.html">Running shoes for men</a>
-                                </h3>
-                                <span class="card-price fw-bold">₹99</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="col mb-4">
-                        <div class="product-card position-relative">
-                            <div class="card-img">
-                                <img
-                                    
-                                    src="{{asset('images/card-item3.jpg')}}"
-                                    alt="product-item"
-                                    class="product-image img-fluid" />
-                                <div
-                                    class="cart-concern position-absolute d-flex justify-content-center">
-                                    <div
-                                        class="cart-button d-flex gap-2 justify-content-center align-items-center">
-                                        <button
-                                            type="button"
-                                            class="btn btn-light">
-                                            <a target="_blank" href=""><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
-                                        </button>
-                                        <button
-                                            type="button"
-                                            class="btn btn-light"
-                                            data-bs-target="#modaltoggle"
-                                            data-bs-toggle="modal">
-                                            <svg class="quick-view">
-                                                <use xlink:href="#quick-view"></use>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <!-- cart-concern -->
-                            </div>
-                            <div
-                                class="card-detail d-flex justify-content-between align-items-center mt-3">
-                                <h3 class="card-title fs-6 fw-normal m-0">
-                                    <a href="index.html">Running shoes for men</a>
-                                </h3>
-                                <span class="card-price fw-bold">₹99</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="col mb-4">
-                        <div class="product-card position-relative">
-                            <div class="card-img">
-                                <img
-                                    
-                                    src="{{asset('images/card-item4.jpg')}}"
-                                    alt="product-item"
-                                    class="product-image img-fluid" />
-                                <div
-                                    class="cart-concern position-absolute d-flex justify-content-center">
-                                    <div
-                                        class="cart-button d-flex gap-2 justify-content-center align-items-center">
-                                        <button
-                                            type="button"
-                                            class="btn btn-light">
-                                            <a target="_blank" href=""><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
-                                        </button>
-                                        <button
-                                            type="button"
-                                            class="btn btn-light"
-                                            data-bs-target="#modaltoggle"
-                                            data-bs-toggle="modal">
-                                            <svg class="quick-view">
-                                                <use xlink:href="#quick-view"></use>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <!-- cart-concern -->
-                            </div>
-                            <div
-                                class="card-detail d-flex justify-content-between align-items-center mt-3">
-                                <h3 class="card-title fs-6 fw-normal m-0">
-                                    <a href="index.html">Running shoes for men</a>
-                                </h3>
-                                <span class="card-price fw-bold">₹99</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col mb-4">
-                        <div class="product-card position-relative">
-                            <div class="card-img">
-                                <img
-                                    
-                                    src="{{asset('images/card-item5.jpg')}}"
-                                    alt="product-item"
-                                    class="product-image img-fluid" />
-                                <div
-                                    class="cart-concern position-absolute d-flex justify-content-center">
-                                    <div
-                                        class="cart-button d-flex gap-2 justify-content-center align-items-center">
-                                        <button
-                                            type="button"
-                                            class="btn btn-light">
-                                            <a target="_blank" href=""><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
-                                        </button>
-                                        <button
-                                            type="button"
-                                            class="btn btn-light"
-                                            data-bs-target="#modaltoggle"
-                                            data-bs-toggle="modal">
-                                            <svg class="quick-view">
-                                                <use xlink:href="#quick-view"></use>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <!-- cart-concern -->
-                            </div>
-                            <div
-                                class="card-detail d-flex justify-content-between align-items-center mt-3">
-                                <h3 class="card-title fs-6 fw-normal m-0">
-                                    <a href="index.html">Running shoes for men</a>
-                                </h3>
-                                <span class="card-price fw-bold">₹99</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-
-            <!-- pagination -->
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-end">
-                    <li class="page-item">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
-
-
-
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-    <section id="collection-products" class="py-2 my-2 py-md-5 my-md-5">
-        <div class="container-md">
+    <!-- main content -->
+    <section class="fr_main">
+        <div class="fr_main_inner container-lg">
             <div class="row">
-                <div class="col-lg-6 col-md-6 mb-4">
-                    <div
-                        class="collection-card card border-0 d-flex flex-row align-items-end jarallax-keep-img">
-                        <img
-                            
-                            src="{{asset('images/collection-item1.jpg')}}"
-                            alt="product-item"
-                            class="border-rounded-10 img-fluid jarallax-img" />
-                        <div class="card-detail p-3 m-3 p-lg-5 m-lg-5">
-                            <h3 class="card-title display-3">
-                                <a href="#">Minimal Collection</a>
-                            </h3>
-                            <a
-                                href="index.html"
-                                class="text-uppercase mt-3 d-inline-block text-hover fw-bold">Shop Now</a>
+
+
+                <div class="fr_left col-lg-7 pb-3">
+                    <div class="fr_left_inner">
+                        <p class="top_title">Sathi Shoes Franchise</p>
+
+                        <img src="{{asset('images/logoS_copy.png')}}" alt="" class="fr_logo" />
+
+                        <div class="left_content pt-3">
+                            <div class="left_content_inner">
+                                <li>
+                                    <span>Franchise Category</span> <span>:</span>
+                                    <span>Shoes Franchise</span>
+                                </li>
+                                <li>
+                                    <span>Sector</span> <span>:</span>
+                                    <span>Shoes Franchise</span>
+                                </li>
+                                <li>
+                                    <span>Service</span> <span>:</span>
+                                    <span>Shoes Franchise</span>
+                                </li>
+                                <li>
+                                    <span>Concept</span> <span>:</span> <span>Shoes Chain</span>
+                                </li>
+                                <li>
+                                    <span>Territory</span> <span>:</span>
+                                    <span>Nationwide</span>
+                                </li>
+                                <li>
+                                    <span>Training Provided</span> <span>:</span>
+                                    <span>Yes</span>
+                                </li>
+                                <li>
+                                    <span>Marketing Support</span> <span>:</span>
+                                    <span>Regional and nation level marketing support</span>
+                                </li>
+                                <li>
+                                    <span>Agreement Term</span> <span>:</span>
+                                    <span>5 years</span>
+                                </li>
+                                <li>
+                                    <span>Number Of Units</span> <span>:</span> <span>10</span>
+                                </li>
+                                <li>
+                                    <span>Units Outside Country</span> <span>:</span>
+                                    <span>N/A</span>
+                                </li>
+                                <li>
+                                    <span>Investment Required</span> <span>:</span>
+                                    <span>10 Lac - 15 Lac</span>
+                                </li>
+                                <li>
+                                    <span>Business Established</span> <span>:</span>
+                                    <span>2011</span>
+                                </li>
+                                <li>
+                                    <span>Franchising Commenced</span> <span>:</span>
+                                    <span>2024</span>
+                                </li>
+                                <li>
+                                    <span>Qualifications Required</span> <span>:</span>
+                                    <span>Good business acumen and ability to invest time and
+                                        money</span>
+                                </li>
+                            </div>
+
+                            <div class="left_content_inner2 pt-3">
+                                <p class="top_title">About Us</p>
+
+                                <div class="left_inner_2">
+                                    <p>
+                                        Sathi Shoes is a leading provider of innovative solutions
+                                        for the footwear industry. With a strong commitment to
+                                        quality, style, and comfort, Sathi Shoes has established
+                                        itself as a trusted brand, delivering cutting-edge
+                                        footwear that meets the needs of modern consumers. Whether
+                                        it's through pioneering designs, advanced materials, or
+                                        sustainable practices, Sathi Shoes continues to set new
+                                        standards in the world of footwear, driving success and
+                                        satisfaction for both customers and franchise partners.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="left_content_inner2">
+                                <p class="top_title">The Opportunity</p>
+                                <div class="left_inner_2">
+                                    <p>
+                                        To be part of leading chain with the wide range of
+                                        footwear options.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="left_content_inner2">
+                                <p class="top_title">Store Location</p>
+                                <div class="left_inner_2">
+                                    <p style="text-transform: capitalize">
+                                        <a href="">Howrah, ranihati west bengal 711302.</a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="left_content_inner2">
+                                <p class="top_title">Business Model</p>
+                                <div class="left_inner_2">
+                                    <p>Low investment with assured return business model.</p>
+                                </div>
+                            </div>
+
+                            <div class="left_content_inner2">
+                                <p class="top_title">Contact Details</p>
+                                <div class="left_inner_2">
+                                    <div class="l_p">
+                                        <div class="text-hover" style="background-color: #d6d5d5">
+                                            <a href=""><i class="fa-solid fa-phone"></i> +91 987000009</a>
+                                        </div>
+                                        <div class="text-hover">
+                                            <a href=""><i class="fa-solid fa-comment"></i> +91 987000007</a>
+                                        </div>
+                                        <div class="text-hover" style="background-color: #d6d5d5">
+                                            <a href=""><i class="fa-brands fa-whatsapp"></i> +91
+                                                987000006</a>
+                                        </div>
+                                        <div class="text-hover">
+                                            <a href=""><i class="fa-brands fa-facebook-f"></i> Visit Our
+                                                Facebook Page</a>
+                                        </div>
+                                        <div class="text-hover" style="background-color: #d6d5d5">
+                                            <a href=""><i class="fa-brands fa-linkedin-in"></i> Visit Our
+                                                LinkedIn</a>
+                                        </div>
+                                        <div class="text-hover">
+                                            <a href=""><i class="fa-solid fa-headset"></i> You Need
+                                                Support</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="left_content_inner2">
+                                <p class="top_title">Primary Contact</p>
+                                <div class="left_inner_2">
+                                    <li>
+                                        <span>Company</span> <span>:</span>
+                                        <span>sathishoes.in</span>
+                                    </li>
+
+                                    <li>
+                                        <span>Email</span> <span>:</span>
+                                        <span>sathishoes@gmail.com</span>
+                                    </li>
+
+                                    <li>
+                                        <span>Telephone</span> <span>:</span>
+                                        <span>+91 9090909090</span>
+                                    </li>
+
+                                    <li>
+                                        <span>Mobile</span> <span>:</span>
+                                        <span>+91 9090909091</span>
+                                    </li>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div
-                        class="collection-card card border-0 d-flex flex-row jarallax-keep-img">
-                        <img
-                            
-                            src="{{asset('images/collection-item2.jpg')}}"
-                            alt="product-item"
-                            class="border-rounded-10 img-fluid jarallax-img" />
-                        <div class="card-detail p-3 m-3 p-lg-5 m-lg-5">
-                            <h3 class="card-title display-3">
-                                <a href="#">Sneakers Collection</a>
-                            </h3>
-                            <a
-                                href="index.html"
-                                class="text-uppercase mt-3 d-inline-block text-hover fw-bold">Shop Now</a>
+
+                <div class="fr_right col-lg-5 pb-3">
+                    <div class="fr_right_inner">
+                        <p class="r_title blinking_effect1">Book An Appointment</p>
+
+                        <div class="form_main">
+                            <form action="" class="form_inner">
+
+
+
+                                <div class="form-group">
+                                    <label for="name">Name<span style="color: red"> *</span></label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        placeholder="Enter Name"
+                                        class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email<span style="color: red"> *</span></label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="name"
+                                        placeholder="Enter Email"
+                                        class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mobile">Mobile No<span style="color: red"> *</span></label>
+                                    <input
+                                        type="number"
+                                        id="mobile"
+                                        name="mobile"
+                                        placeholder="+91-"
+                                        class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="district">District<span style="color: red"> *</span></label>
+                                    <select name="district" id="district" class="form-control">
+                                        <option value="" selected>--Select District--</option>
+                                        <option value="Andaman and Nicobar Islands">
+                                            Andaman and Nicobar Islands
+                                        </option>
+                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                        <option value="Arunachal Pradesh">
+                                            Arunachal Pradesh
+                                        </option>
+                                        <option value="Assam">Assam</option>
+                                        <option value="Bihar">Bihar</option>
+                                        <option value="Chandigarh">Chandigarh</option>
+                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <option value="Dadra and Nagar Haveli and Daman and Diu">
+                                            Dadra and Nagar Haveli and Daman and Diu
+                                        </option>
+                                        <option value="Delhi">Delhi</option>
+                                        <option value="Goa">Goa</option>
+                                        <option value="Gujarat">Gujarat</option>
+                                        <option value="Haryana">Haryana</option>
+                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                        <option value="Jammu and Kashmir">
+                                            Jammu and Kashmir
+                                        </option>
+                                        <option value="Jharkhand">Jharkhand</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                        <option value="Kerala">Kerala</option>
+                                        <option value="Ladakh">Ladakh</option>
+                                        <option value="Lakshadweep">Lakshadweep</option>
+                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                        <option value="Maharashtra">Maharashtra</option>
+                                        <option value="Manipur">Manipur</option>
+                                        <option value="Meghalaya">Meghalaya</option>
+                                        <option value="Mizoram">Mizoram</option>
+                                        <option value="Nagaland">Nagaland</option>
+                                        <option value="Odisha">Odisha</option>
+                                        <option value="Puducherry">Puducherry</option>
+                                        <option value="Punjab">Punjab</option>
+                                        <option value="Rajasthan">Rajasthan</option>
+                                        <option value="Sikkim">Sikkim</option>
+                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                        <option value="Telangana">Telangana</option>
+                                        <option value="Tripura">Tripura</option>
+                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                        <option value="Uttarakhand">Uttarakhand</option>
+                                        <option value="West Bengal">West Bengal</option>
+                                    </select>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="location">Desired Location<span style="color: red"> *</span></label>
+                                    <input
+                                        type="text"
+                                        id="location"
+                                        name="location"
+                                        placeholder="Enter Location"
+                                        class="form-control" />
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="budget">Your Budget<span style="color: red"> *</span></label>
+                                    <select name="budget" id="budget" class="form-control">
+                                        <option value="" selected>--Select Budget--</option>
+                                        <option value="INR 1 Lac">INR 1 Lac</option>
+                                        <option value="INR 2 Lac">INR 2 Lac</option>
+                                        <option value="INR 3 Lac">INR 3 Lac</option>
+                                        <option value="INR 5 Lac">INR 5 Lac</option>
+                                        <option value="INR 10 Lac">INR 10 Lac</option>
+                                        <option value="INR 15 Lac">INR 15 Lac</option>
+                                        <option value="INR 20 Lac">INR 20 Lac</option>
+                                        <option value="INR 25 Lac">INR 25 Lac</option>
+                                        <option value="INR 30 Lac">INR 30 Lac</option>
+                                        <option value="INR 40 Lac">INR 40 Lac</option>
+                                        <option value="INR 50 Lac">INR 50 Lac</option>
+                                        <option value="INR 75 Lac">INR 75 Lac</option>
+                                        <option value="INR 1 Cr">INR 1 Cr</option>
+                                        <option value="INR 2 Cr">INR 2 Cr</option>
+                                        <option value="INR 3 Cr">INR 3 Cr</option>
+                                        <option value="INR 4 Cr">INR 4 Cr</option>
+                                        <option value="INR 5 Cr">INR 5 Cr</option>
+                                        <option value="INR 10 Cr">INR 10 Cr</option>
+                                        <option value="INR 15 Cr">INR 15 Cr</option>
+                                        <option value="INR 20 Cr">INR 20 Cr</option>
+                                        <option value="INR 25 Cr">INR 25 Cr</option>
+                                    </select>
+                                </div>
+
+
+
+
+                                <div class="form-group">
+                                    <label for="purchase_timeframe">Purchase Timeframe<span style="color: red"> *</span></label>
+                                    <select name="purchase_timeframe" id="purchase_timeframe" class="form-control">
+                                        <option value="" selected>--Select Purchase Timeframe--</option>
+                                        <option value="1 Month">1 Month</option>
+                                        <option value="2 Month">2 Month</option>
+                                        <option value="3 Month">3 Month</option>
+                                        <option value="6 Month">6 Month</option>
+                                        <option value="1 Year">1 Year</option>
+                                        <option value="Now">Now</option>
+                                    </select>
+                                </div>
+
+
+
+
+                                <div class="button_main">
+                                    <a href="" class="btn btn-dark">ENQUIRY</a>
+                                </div>
+
+
+
+
+                            </form>
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </section>
-
+    <!-- main content -->
 
 
 

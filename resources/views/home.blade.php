@@ -31,6 +31,15 @@
 
     <!-- icon -->
     <link rel="icon" href="images/logoS.png" type="image/png">
+
+
+
+    <!-- CDN -->
+    <!-- MDB JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script>
+
+    <!-- Font Awesome Icons (for stars and icons) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -683,9 +692,8 @@
                         </ul>
                     </div>
                     <div class="col d-none d-md-block">
-                        <p class="text-center text-black m-0">
-                            <strong>Special Offer</strong>: Free Shipping on all the orders
-                            above ₹700
+                        <p class="text-center text-black m-0 top_text">
+                            <a href="/buy-franchise" target="_blank" class="text-hover"><i class="fa-solid fa-quote-left"></i><strong> Buy franchise, </strong>Step into success: own your shoes <strong>Franchise Today </strong> <i class="fa-solid fa-certificate blinking_effect"></i></a>
                         </p>
                     </div>
                     <div class="col">
@@ -751,6 +759,12 @@
                                     <li>
                                         <a href="/categories" class="dropdown-item">View All</a>
                                     </li>
+
+                                    <li>
+                                        <a href="/buy-franchise" class="dropdown-item">Buy Franchise</a>
+                                    </li>
+
+
                                     <li>
                                         <a href="/latest-products" class="dropdown-item">Latest Products</a>
                                     </li>
@@ -769,6 +783,12 @@
                             <li class="nav-item">
                                 <a class="nav-link me-5 text-hover" href="/categories">Kids</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link me-5 text-hover" href="/buy-franchise">Franchise</a>
+                            </li>
+
+
                             <li class="nav-item">
                                 <a class="nav-link me-5" href="/about">About</a>
                             </li>
@@ -1498,6 +1518,148 @@
             </div>
         </div>
     </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Carousel wrapper -->
+    <div id="carouselExampleControls" data-mdb-carousel-init class="carousel slide text-center carousel-dark" data-mdb-ride="carousel" style="margin-bottom: 20px;">
+        <div class="carousel-inner" style="padding: 60px;">
+
+
+            <div class="carousel-item active">
+                <img class="rounded-circle shadow-1-strong mb-4"
+                    src="{{asset('images/empty.jpg')}}" alt="avatar"
+                    style="width: 150px;" />
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <h5 class="mb-3" style="text-transform: capitalize;">xyz</h5>
+                        <p style="text-transform: capitalize;">Developer</p>
+                        <p class="text-muted">
+                            <i class="fas fa-quote-left pe-2"></i>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus et deleniti
+                            nesciunt sint eligendi reprehenderit reiciendis, quibusdam illo, beatae quia
+                            fugit consequatur laudantium velit magnam error. Consectetur distinctio fugit
+                            doloremque.
+                        </p>
+                    </div>
+                </div>
+                <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="far fa-star fa-sm"></i></li>
+                </ul>
+            </div>
+
+
+            <div class="carousel-item">
+                <img class="rounded-circle shadow-1-strong mb-4"
+                    src="{{asset('images/empty.jpg')}}" alt="avatar"
+                    style="width: 150px;" />
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <h5 class="mb-3">John Doe</h5>
+                        <p>Web Developer</p>
+                        <p class="text-muted">
+                            <i class="fas fa-quote-left pe-2"></i>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus et deleniti
+                            nesciunt sint eligendi reprehenderit reiciendis.
+                        </p>
+                    </div>
+                </div>
+                <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="far fa-star fa-sm"></i></li>
+                </ul>
+            </div>
+
+
+            <div class="carousel-item">
+                <img class="rounded-circle shadow-1-strong mb-4"
+                    src="{{asset('images/empty.jpg')}}" alt="avatar" style="width: 150px;" />
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <h5 class="mb-3">Anna Deynah</h5>
+                        <p>UX Designer</p>
+                        <p class="text-muted">
+                            <i class="fas fa-quote-left pe-2"></i>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus et deleniti
+                            nesciunt sint eligendi reprehenderit reiciendis, quibusdam illo, beatae quia
+                            fugit consequatur laudantium velit magnam error. Consectetur distinctio fugit
+                            doloremque.
+                        </p>
+                    </div>
+                </div>
+                <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="fas fa-star fa-sm"></i></li>
+                    <li><i class="far fa-star fa-sm"></i></li>
+                </ul>
+            </div>
+
+
+        </div>
+
+
+        <button data-mdb-button-init class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls"
+            data-mdb-slide="prev">
+            <span class="carousel-control-prev-icon text-body" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+
+        <button data-mdb-button-init class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls"
+            data-mdb-slide="next">
+            <span class="carousel-control-next-icon text-body" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+
+    </div>
+    <!-- Carousel wrapper -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

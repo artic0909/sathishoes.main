@@ -103,6 +103,11 @@ Route::get('/contact-us', function () {
     return view('contact');
 });
 
+Route::get('/buy-franchise', function () {
+    return view('franchise');
+});
+
+
 
 
 
